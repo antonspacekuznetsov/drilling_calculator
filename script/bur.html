@@ -1,0 +1,244 @@
+<script>
+$("<link>", {
+    rel:"stylesheet",
+	type:"text/css",
+	href:"http://гидбурсервис.рф/assets/templates/gbsplus/plugins/calculator/calcstyle.css"
+}).appendTo("head");
+$("<script>", {
+	type:"text/javascript",
+	src:"http://гидбурсервис.рф/assets/templates/gbsplus/plugins/calculator/script/jquery.maskedinput1.4.1.js"
+}).appendTo("head");
+</script>
+<div class="videoBlock">
+    <div class="s-container">
+        <div class="s-container-title">
+            Калькулятор бурения скважины в МО:
+        </div>
+        <div class="videoBlock-wraper clearfix">
+            <div class="s-content-body">
+                <div class="s-content-body-wrp">
+<div class="titler"> 
+<h3 style="margin:0px;">Артезианская скважина</h3>
+</div>
+<div class="maindiv">
+<div class="row rowg">  
+<div class="col-md-4">
+<h4>Выберете район<span style="color:red">*</span></h4>
+</div>
+<div class="col-md-4">
+<select id="raioner" class="selectpicker" style="width:100%;">
+
+  <option>Воскресенский район</option><option>Волоколамский район</option><option>Домодедовский район</option><option>Истринский район</option><option>Новая Москва</option><option>Каширский район</option><option>Ленинский район</option><option>Люберецкий район</option><option>Можайский район</option><option>Наро-Фоминский район</option><option>Ногинский район</option><option>Одинцовский район</option><option>Подольский район</option><option>Раменский район</option><option>Рузский район</option><option>Серпуховский район</option><option>Ступинский район</option><option>Чеховский район</option><option>Тарусский район (Калужская область)</option><option>Жуковский район (Калужская область)</option><option>Боровский район (Калужская область)</option><option>Мало-ярославский район (Калужская область)</option><option>Заокский район (Тульская область)</option></select>
+</select>
+</div>
+</div>
+
+<div class="row rowg">
+<div class="col-md-3" >
+<h4>Конструкция скваженны</h4>
+</div>
+<div id="const" style="margin-top:10px;display:inherit;">
+<div class="constraction selected2" style="display:inline-block;">
+<div class="radius" style="width:12px;height:12px;background-position: 0 -12px;"></div><span>133 мет.</span>
+</div>
+<div class="constraction " style="display:inline-block;">
+<div class="radius" style="width:12px;height:12px;"></div><span>133 мет. + 117 ПНД</span>
+</div>
+<div class="constraction " style="display:inline-block;">
+<div class="radius" style="width:12px;height:12px;"></div><span>159 мет.</span>
+</div>
+<div class="constraction " style="display:inline-block;">
+<div class="radius" style="width:12px;height:12px;"></div><span>159 мет. + 125 ПНД</span>
+</div>
+</div>
+</div>
+
+<div class="row rowg">
+	<div class="col-md-4" style="padding-top:12px;">
+		<h4>Тип обсадной трубы</h4>
+	</div>
+	<div id="typex">
+		<div class="typer selected2" style="display:inline-block;">
+			<span>Цельнотянутоя труба</span>
+		</div>
+		<div class="typer " style="display:inline-block;">
+			<span>Усиленная труба</span>
+		</div>
+
+	</div>
+</div>
+
+<div class="row rowg">
+	<div class="col-md-4" >
+		<h4>Глубина бурения</h4>
+	</div>
+	
+		<div class="input-group" style="margin-top:5px;">
+		  <input style="border-radius:20px;" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="1" id ="glb" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57;'>
+		</div>
+
+	
+</div>
+<div class="row rowg">
+
+	<div id="coster" class="getcost">РАССЧИТАТЬ СТОИМОСТЬ</div>
+</div>
+</div>
+                </div>
+            </div>
+            <div class="s-content-menu no-margin">
+                <div class="s-user-sales-form blue">
+                <div class="s-form-title">Нужна<br />консультация?</div>
+                [[!AjaxForm? 
+                    &form=`tpl.AjaxFormSalesForm` 
+                    &snippet=`FormIt` 
+                    &hooks=`hook.Roistat,spam,FormItSaveForm,email,math`
+                    &emailSubject=`Новый лид: Контакты Гидбурсервис.рф`
+                    &emailTo=`sales@gbsplus.ru`
+                    &emailFrom=`info@gbsplus.ru`
+                    &emailTpl=`tpl.email`
+                    &validate=`name:minLength=^3^,phone:minLength=^9^:maxLength=^12^:required`
+                    &validationErrorMessage=`В форме содержатся ошибки!`
+                    &successMessage=`Ваше сообщение успешно отправлено`
+                    &FormFields=`title,name,mail,phone`
+                ]]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$('.maindiv h4, .titler h3, .popuper h4').css({"line-height":"normal"});
+$('.constraction, .typer').on('mouseover', function(){$(this).addClass("constr");} )
+$('.constraction, .typer').on('mouseout', function(){$(this).removeClass("constr");} )
+$('#coster, #sender').on('mouseover', function(){$(this).animate({width:"+=20", height:"+=1"},100);} )
+$('#coster, #sender').on('mouseout', function(){$(this).animate({width:"-=20", height:"-=1"},100);} )
+$('.constraction').on('click', function(){ $('.constraction').removeClass('selected2'); $(this).addClass("selected2"); $('.constraction').children().css({"background-position":"0 0px"}); $(this).children().css({"background-position":"0 -12px"}); } )
+$('.typer').on('click', function(){ $('.typer').removeClass('selected2'); $(this).addClass("selected2"); } );
+$('#coster').on('click', calculate_cost);
+
+function sender()
+{
+	var message = "<table><tr><td>Район бурения</td><td>"+$("#raioner").val()+"</td></tr><tr><td>Диаметр скваженны</td><td>"+$('#const .selected2').children('span').text()+"</td></tr><tr><td>Глубина</td><td>"+$('#glb').val()+"</td></tr><tr><td>Стоимость</td><td>"+$('#totalcost').text()+"</td></tr><tr><td>Имя</td><td>"+$('#name').val()+"</td></tr><tr><td>Телефон</td><td>"+$('#tel').val()+"</td></tr></table>";
+	priznak=false;
+	if ($('#tel').val()==""){
+		$('#al2').text("Поле обязательно");
+		priznak=true;
+	}
+	else {
+		$('#al2').text("");
+	}
+		if ($('#name').val()==""){
+		$('#al1').text("Поле обязательно");
+		priznak=true;
+	}
+	else {
+		$('#al1').text("");
+	}
+	
+	if (priznak){
+		return;
+	}
+	$("#popup").remove();
+	$('#name, #tel').val('');$('#popup').css({'visibility':'hidden'});$('#al1, #al2').text('');
+	$('body').append("<div id='popup2' class='popuper'><span class=\"bx-imopenlines-config-sidebar-close-item\" style=\"float:right;cursor:pointer;\" onclick='$(\"#layer2\").fadeOut(\"fast\");$(\"#popup2\").remove();'></span><h3 style='text-align:center;'>Ваша заявка успешно отправлена</h3></div>");
+	$('#popup2').css({"left":($(window).width()/2 - $('#popup2').width()/2) + "px", "top":(($(document).scrollTop()+$(window).height()/2-$('#popup2').height()) + "px")});
+	setElems();
+		$.ajax({ 
+		type: "POST",
+	  url: "assets/templates/gbsplus/plugins/calculator/mailer.php",
+	  data: "ergdf3=1&msg=" + encodeURIComponent(message)
+	});
+}
+function calculate_cost()
+{
+	price =[];
+	total=0;
+		$('body').append("<div id=\"layer2\"></div><div id=\"popup\" class=\"popuper\"> <div><img id=\"karts\" src=\"/assets/templates/gbsplus/plugins/calculator/img/0.jpg\" style=\"float:left;width:254px;height:254px;\"></div> <span class=\"bx-imopenlines-config-sidebar-close-item\" style=\"position:absolute;right:5px;top:5px;cursor:pointer;\" onclick=\"$('#layer2').fadeOut('fast');$('#popup').remove();\"></span> <h4 id=\"raion\">Район бурения:</h4> <h4 id=\"diametr\">Диаметр скваженны:<span class=\"radius\" style=\"width:12px;height:12px;background-position: 0 0px;\"></span></h4> <h4 id=\"glubina\">Глубина:</h4> <hr color=\"red\" > <h4>Итоговая стоимость:</h4> <div> <h2 id=\"totalcost\" style=\"text-align:center\"><b>1900</b></h2> </div> <div style=\"width:100%; margin-top:15px;\"> 		<div class=\"input-group\" style=\"width:49%;display:inline-block;\"> 		  <input  type=\"text\" class=\"form-control\" aria-label=\"Amount (to the nearest dollar)\" placeholder=\"Ваше имя\" id =\"name\"> 		  <span id=\"al1\" style=\"color:red;\"></span> 		</div> 				<div class=\"input-group\" style=\"width:49%;display:inline-block;\"> 		  <input type=\"text\" class=\"form-control\" aria-label=\"Amount (to the nearest dollar)\"  id =\"tel\" placeholder=\"+7 123 4567890\"> 		  <span id=\"al2\" style=\"color:red;\"></span> 		</div> </div> <div class=\"row\"> 	<div id=\"coster\" style=\"margin-bottom:10px;\" class=\"sender\" onclick=\"sender();\">ОТПРАВИТЬ ЗАЯВКУ</div> </div> </div>");
+price["Воскресенский район_0"]=1700;price["Воскресенский район_1"]=1900;price["Воскресенский район_2"]=2300;price["Воскресенский район_3"]=2600;price["Волоколамский район_0"]=1800;price["Волоколамский район_1"]=2000;price["Волоколамский район_2"]=2300;price["Волоколамский район_3"]=2500;price["Домодедовский район_0"]=1700;price["Домодедовский район_1"]=1900;price["Домодедовский район_2"]=2200;price["Домодедовский район_3"]=2500;price["Истринский район_0"]=1800;price["Истринский район_1"]=2000;price["Истринский район_2"]=2200;price["Истринский район_3"]=2500;price["Новая Москва_0"]=1700;price["Новая Москва_1"]=1900;price["Новая Москва_2"]=2000;price["Новая Москва_3"]=2500;price["Каширский район_0"]=1800;price["Каширский район_1"]=2100;price["Каширский район_2"]=2200;price["Каширский район_3"]=2500;price["Ленинский район_0"]=1700;price["Ленинский район_1"]=1900;price["Ленинский район_2"]=2200;price["Ленинский район_3"]=2500;price["Люберецкий район_0"]=1800;price["Люберецкий район_1"]=2000;price["Люберецкий район_2"]=2200;price["Люберецкий район_3"]=2500;price["Можайский район_0"]=1900;price["Можайский район_1"]=2100;price["Можайский район_2"]=2200;price["Можайский район_3"]=2500;price["Наро-Фоминский район_0"]=1700;price["Наро-Фоминский район_1"]=1900;price["Наро-Фоминский район_2"]=2200;price["Наро-Фоминский район_3"]=2500;price["Ногинский район_0"]=1800;price["Ногинский район_1"]=2000;price["Ногинский район_2"]=2200;price["Ногинский район_3"]=2500;price["Одинцовский район_0"]=1700;price["Одинцовский район_1"]=1900;price["Одинцовский район_2"]=2200;price["Одинцовский район_3"]=2500;price["Подольский район_0"]=1700;price["Подольский район_1"]=1900;price["Подольский район_2"]=2000;price["Подольский район_3"]=2500;price["Раменский район_0"]=1800;price["Раменский район_1"]=2000;price["Раменский район_2"]=2200;price["Раменский район_3"]=2500;price["Рузский район_0"]=1900;price["Рузский район_1"]=2100;price["Рузский район_2"]=2200;price["Рузский район_3"]=2500;price["Серпуховский район_0"]=1700;price["Серпуховский район_1"]=1900;price["Серпуховский район_2"]=2200;price["Серпуховский район_3"]=2500;price["Ступинский район_0"]=1700;price["Ступинский район_1"]=1900;price["Ступинский район_2"]=2200;price["Ступинский район_3"]=2500;price["Чеховский район_0"]=1700;price["Чеховский район_1"]=1900;price["Чеховский район_2"]=2200;price["Чеховский район_3"]=2500;price["Тарусский район (Калужская область)_0"]=1900;price["Тарусский район (Калужская область)_1"]=2200;price["Тарусский район (Калужская область)_2"]=2400;price["Тарусский район (Калужская область)_3"]=2700;price["Жуковский район (Калужская область)_0"]=1700;price["Жуковский район (Калужская область)_1"]=1900;price["Жуковский район (Калужская область)_2"]=2200;price["Жуковский район (Калужская область)_3"]=2500;price["Боровский район (Калужская область)_0"]=1800;price["Боровский район (Калужская область)_1"]=2000;price["Боровский район (Калужская область)_2"]=2200;price["Боровский район (Калужская область)_3"]=2500;price["Мало-ярославский район (Калужская область)_0"]=1900;price["Мало-ярославский район (Калужская область)_1"]=2200;price["Мало-ярославский район (Калужская область)_2"]=2300;price["Мало-ярославский район (Калужская область)_3"]=2600;price["Заокский район (Тульская область)_0"]=2000;price["Заокский район (Тульская область)_1"]=2300;price["Заокский район (Тульская область)_2"]=2400;price["Заокский район (Тульская область)_3"]=2700;	
+	jQuery(function($){
+   $("#tel").mask("+7 (999) 999-9999");
+});
+	switch ($('#const .selected2').children('span').text())
+	{
+		case "133 мет." :
+			$('#karts').attr("src", "/assets/templates/gbsplus/plugins/calculator/img/0.jpg");
+			total = price[$("#raioner").val() + "_0"];
+		break;
+		
+		case "133 мет. + 117 ПНД" :
+			$('#karts').attr("src", "/assets/templates/gbsplus/plugins/calculator/img/1.jpg");
+			total = price[$("#raioner").val() + "_1"];
+		break;
+		
+		case "159 мет." :
+			$('#karts').attr("src", "/assets/templates/gbsplus/plugins/calculator/img/0.jpg");
+			total = price[$("#raioner").val() + "_2"];
+		break;
+		
+		case "159 мет. + 125 ПНД":
+			$('#karts').attr("src", "/assets/templates/gbsplus/plugins/calculator/img/1.jpg");
+			total = price[$("#raioner").val() + "_3"];
+		break;
+		
+		default:
+			$('#karts').attr("src", "/assets/templates/gbsplus/plugins/calculator/img/0.jpg");
+		break;
+	}
+	total = Number($('#glb').val()) * total;
+	if ($('#typex .selected2').children().text() == "Усиленная труба")
+	{
+		total += Number($('#glb').val()) * 200;
+	}
+	
+	$('#raion').html("Район бурения: <span style='color:gray;'>" + $("#raioner").val()+"</span>");
+	$('#diametr').html('Диаметр скваженны: <br><span class="radius" style="width:12px;height:12px;background-position: 0 0px;"></span><span style="white-space: nowrap;">' + $('#const .selected2').children('span').text()+"</span>");
+	$('#glubina').html("Глубина: " + $('#glb').val() +" м.");
+    $('#popup').css({"visibility":"visible","left":$(window).width() < 998 ? "0px" : (($(window).width()/2 - $('#popup').width()/2) + "px"), "top": (($(document).scrollTop()+20) + "px")});
+	$('#totalcost').html("<b>"+total+" Р</b>");
+	$('#layer2').fadeIn('fast');
+	setElems();
+}
+
+window.onresize = function(e){setElems()};
+function setElems(){
+	if ($(window).width() < 998) {
+	    $(".maindiv").addClass("col-md-6");
+	    $(".maindiv .col-md-4, .maindiv .col-md-3").css({"width":"100%"})
+		$('.row').css({"margin-top":"0px"});
+		//$('#raioner').parent().css({"width":"60%", "margin-left":"0px"});
+		$('h4').css({"text-align":"center"});
+		$('#glb').parent().css({"margin":"0 auto"});
+		$("#const").parent().css({"margin":"0 auto"});
+		$("#popup").css({"width": "100%", "left:":"1px", "padding":"0px"});
+		$("#karts").css({"float":""});
+		$("#karts").parent().css({"text-align":"center"});
+		$('#popup2').css({"visibility":"visible","width":$(window).width()+"px","left":"0px"});
+	}
+	else
+	{
+	    $(".maindiv").css({"width":"670px"});
+	    $(".maindiv").removeClass("col-md-6");
+	    $(".maindiv .col-md-4, .maindiv .col-md-3").css({"width":""})
+		$('h4').css({"text-align":"left"})
+		$('#raioner').parent().css({"width":"60%", "margin-left":"-60px"});
+		$('.rowg').css({"margin-top":"25px"});
+		$('#glb').parent().css({"margin":"0px"});
+		$("#karts").parent().css({"text-align":"left"});
+	}
+	
+	if ($(window).width() < 998 && $(window).width() > 400) {
+		$("#const").css({"width":"70%", "margin":"0 auto"});
+		$("#typex").css({"width":"40%", "margin":"0 auto"});
+	}
+	else
+	{
+		$("#const").css({"width":"", "margin":""});
+		$("#typex").css({"width":"", "margin":""});
+	}
+}
+setElems();
+jQuery(function($){
+   $("#tel").mask("+7 (999) 999-9999");
+});
+</script>
